@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">JavaBaseProject</string>
+    <string name="db_name">db_java_base_project</string>
+    <string name="pref_name">prefs_java_base_project</string>
 </resources>
