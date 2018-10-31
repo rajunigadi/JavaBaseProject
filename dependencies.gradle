@@ -1,0 +1,87 @@
+ext {
+    def versions = [
+            androidSupport      : '27.1.1',
+            googlePlay          : '15.0.1',
+            firebase            : '16.0.0',
+            firebaseMessaging   : '17.0.0',
+            constraintLayout    : '1.1.0',
+            lifecycle           : '1.1.1',
+            room                : '1.0.0',
+            multidex            : '1.0.2',
+            dagger              : '2.15',
+            javaxAnnotation     : '1.0',
+            glide               : '4.7.1',
+            glideTransformers   : '3.0.1',
+            retrofit            : '2.3.0',
+            retrofitRx2Adapter  : '1.0.0',
+            gsonConverter       : '2.8.0',
+            okHttpLog           : '3.8.1',
+            rxJava              : '2.1.0',
+            rxAndroid           : '2.0.1',
+            okHttpLog           : '3.8.1',
+            butterknife         : '8.8.1',
+            gson                : '2.8.2',
+            timber              : '4.5.1',
+            junit               : '4.12'
+    ]
+
+
+    libs = [
+            daggerCompiler       : "com.google.dagger:dagger-compiler:${versions.dagger}",
+            dagger               : "com.google.dagger:dagger:${versions.dagger}",
+            daggerAndProcessor   : "com.google.dagger:dagger-android-processor:${versions.dagger}",
+            daggerSupport        : "com.google.dagger:dagger-android-support:${versions.dagger}",
+            daggerAndroid        : "com.google.dagger:dagger-android:${versions.dagger}",
+
+            javaxAnnotation      : "javax.annotation:jsr250-api:${versions.javaxAnnotation}",
+
+            glide                : "com.github.bumptech.glide:glide:${versions.glide}",
+            glideProcessor       : "com.github.bumptech.glide:compiler:${versions.glide}",
+            glideTransformers    : "jp.wasabeef:glide-transformations:${versions.glideTransformers}",
+
+            okHttpLog            : "com.squareup.okhttp3:logging-interceptor:${versions.okHttpLog}",
+
+            retrofit             : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+            retrofitRx2Adapter   : "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${versions.retrofitRx2Adapter}",
+            gsonConverter        : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+
+            rxJava               : "io.reactivex.rxjava2:rxjava:${versions.rxJava}",
+            rxAndroid            : "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}",
+            rxBindingAppcompact  : "com.jakewharton.rxbinding:rxbinding-appcompat-v7:${versions.rxBindingAppcompact}",
+
+            googlePlay           : "com.google.android.gms:play-services-gcm:${versions.googlePlay}",
+            supportAnnotations   : "com.android.support:support-annotations:${versions.androidSupport}",
+            design               : "com.android.support:design:${versions.androidSupport}",
+            recyclerView         : "com.android.support:recyclerview-v7:${versions.androidSupport}",
+            cardview             : "com.android.support:cardview-v7:${versions.androidSupport}",
+            supportv4            : "com.android.support:support-v4:${versions.androidSupport}",
+            appcompatv7          : "com.android.support:appcompat-v7:${versions.androidSupport}",
+            supportv13           : "com.android.support:support-v13:${versions.androidSupport}",
+            vectorSupport        : "com.android.support:support-vector-drawable:${versions.androidSupport}",
+            preferenceV7         : "com.android.support:preference-v7:${versions.androidSupport}",
+            preferenceV14        : "com.android.support:preference-v14:${versions.androidSupport}",
+            constraintLayout     : "com.android.support.constraint:constraint-layout:${versions.constraintLayout}",
+            multidex             : "com.android.support:multidex:${versions.multidex}",
+
+            firebaseCore         : "com.google.firebase:firebase-core:${versions.firebase}",
+            firebaseCrash        : "com.google.firebase:firebase-crash:${versions.firebase}",
+            firebaseMessaging    : "com.google.firebase:firebase-messaging:${versions.firebaseMessaging}",
+
+            butterknife          : "com.jakewharton:butterknife:${versions.butterknife}",
+            butterknifeProcessor : "com.jakewharton:butterknife-compiler:${versions.butterknife}",
+
+            room                 : "android.arch.persistence.room:runtime:${versions.room}",
+            roomProcessor        : "android.arch.persistence.room:compiler:${versions.room}",
+            roomRx               : "android.arch.persistence.room:rxjava2:${versions.room}",
+
+            lifecycle            : "android.arch.lifecycle:runtime:${versions.lifecycle}",
+            lifecycleExtensions  : "android.arch.lifecycle:extensions:${versions.lifecycle}",
+            lifecycleProcessor   : "android.arch.lifecycle:compiler:${versions.lifecycle}",
+
+            gson                 : "com.google.code.gson:gson:${versions.gson}",
+
+            timber               : "com.jakewharton.timber:timber:${versions.timber}",
+
+            junit                : "junit:junit:${versions.junit}"
+    ]
+}
