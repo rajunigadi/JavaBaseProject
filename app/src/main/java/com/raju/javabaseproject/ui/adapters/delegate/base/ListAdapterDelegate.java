@@ -7,15 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.raju.javabaseproject.ui.adapters.base.ViewAdapterHolder;
-import com.raju.javabaseproject.mvp.model.ListItem;
+import com.raju.javabaseproject.data.model.ListItem;
 
 import java.util.List;
 
 import butterknife.ButterKnife;
-
-/**
- * Created by Rajashekhar Vanahalli on 12/21/17.
- */
 
 public abstract class ListAdapterDelegate<T extends ListItem> implements AdapterDelegate<List<T>> {
     protected ListAdapterDelegate(int layoutId, Class<T> recordType) {

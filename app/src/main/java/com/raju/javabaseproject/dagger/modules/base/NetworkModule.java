@@ -4,8 +4,8 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 
 import com.raju.javabaseproject.R;
-import com.raju.javabaseproject.data.http.HeaderInterceptor;
-import com.raju.javabaseproject.data.http.HttpClientBuilder;
+import com.raju.javabaseproject.data.source.remote.http.HeaderInterceptor;
+import com.raju.javabaseproject.data.source.remote.http.HttpClientBuilder;
 import com.raju.javabaseproject.data.utils.SharedPrefsHelper;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
@@ -18,10 +18,6 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
 
 @Module(includes = HttpModule.class)
 public class NetworkModule {

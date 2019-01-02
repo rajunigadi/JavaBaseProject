@@ -6,9 +6,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-/**
- * Created by Rajashekhar Vanahalli on 11/06/18.
- */
 public class DateTimeUtil {
 
     public static final String YYYY_MM_DD_HH_MM_SS = "yyyy-MM-dd HH:mm:ss";

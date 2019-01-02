@@ -1,14 +1,10 @@
-package com.raju.javabaseproject.data.database;
+package com.raju.javabaseproject.data.source.local;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;
 
-import com.raju.javabaseproject.data.database.dao.UserDao;
-import com.raju.javabaseproject.mvp.model.User;
-
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
+import com.raju.javabaseproject.data.model.User;
+import com.raju.javabaseproject.data.source.local.dao.UserDao;
 
 @Database(entities = {User.class}, version = AppDatabase.VERSION)
 public abstract class AppDatabase extends RoomDatabase {

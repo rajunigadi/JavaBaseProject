@@ -13,10 +13,6 @@ import com.raju.javabaseproject.dagger.DatabaseInfo;
 import dagger.Module;
 import dagger.Provides;
 
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
-
 @Module
 public class ApplicationModule {
 

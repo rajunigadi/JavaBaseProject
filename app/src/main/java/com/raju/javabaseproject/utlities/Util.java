@@ -2,9 +2,6 @@ package com.raju.javabaseproject.utlities;
 
 import android.content.res.Resources;
 
-/**
- * Created by Rajashekhar Vanahalli on 20/07/18.
- */
 public class Util {
 
     public static int dpToPx(int dp) {

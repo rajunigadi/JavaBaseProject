@@ -1,9 +1,8 @@
-package com.raju.javabaseproject.data.http;
+package com.raju.javabaseproject.data.source.remote.http;
 
 import android.content.Context;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HostnameVerifier;
@@ -11,16 +10,12 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
 
 import okhttp3.Cache;
-import okhttp3.Connection;
 import okhttp3.CookieJar;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Response;
 import timber.log.Timber;
 
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
+
 
 public class HttpClientBuilder {
 

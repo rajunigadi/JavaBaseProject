@@ -1,4 +1,4 @@
-package com.raju.javabaseproject.data.http;
+package com.raju.javabaseproject.data.source.remote.http;
 
 import android.content.Context;
 
@@ -10,9 +10,7 @@ import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
 
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
+
 
 public class ConnectivityInterceptor implements Interceptor {
 

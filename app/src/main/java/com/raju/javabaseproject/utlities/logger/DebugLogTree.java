@@ -5,9 +5,7 @@ import android.util.Log;
 
 import timber.log.Timber;
 
-/**
- * Created by rajashekhar.v on 24/03/18.
- */
+
 
 public class DebugLogTree extends Timber.DebugTree {
 

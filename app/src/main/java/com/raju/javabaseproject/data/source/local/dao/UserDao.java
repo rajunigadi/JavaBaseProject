@@ -1,4 +1,4 @@
-package com.raju.javabaseproject.data.database.dao;
+package com.raju.javabaseproject.data.source.local.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
@@ -6,15 +6,11 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.raju.javabaseproject.mvp.model.User;
+import com.raju.javabaseproject.data.model.User;
 
 import java.util.List;
 
 import io.reactivex.Flowable;
-
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
 
 @Dao
 public interface UserDao {

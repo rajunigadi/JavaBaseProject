@@ -9,9 +9,7 @@ import com.raju.javabaseproject.R;
 
 import java.io.File;
 
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
+
 
 public class ImageRequester {
 

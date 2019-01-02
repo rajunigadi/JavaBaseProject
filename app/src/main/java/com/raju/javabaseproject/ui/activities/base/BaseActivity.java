@@ -22,9 +22,7 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
+
 
 public class BaseActivity extends AppCompatActivity implements HasSupportFragmentInjector {
 

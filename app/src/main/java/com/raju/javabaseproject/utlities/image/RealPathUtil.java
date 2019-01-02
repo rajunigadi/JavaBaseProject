@@ -9,10 +9,6 @@ import android.os.Build;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 
-/**
- * Created by Rajashekhar Vanahalli on 12/07/18.
- */
-
 public class RealPathUtil {
 
     @SuppressLint("NewApi")

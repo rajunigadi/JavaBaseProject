@@ -1,8 +1,6 @@
 package com.raju.javabaseproject.utlities;
 
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
+
 
 public class Constants {
     public final static String AUTH_TYPE = "password";

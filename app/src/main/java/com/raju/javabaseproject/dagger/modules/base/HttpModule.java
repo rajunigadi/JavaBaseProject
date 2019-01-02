@@ -18,10 +18,6 @@ import timber.log.Timber;
 import static okhttp3.logging.HttpLoggingInterceptor.Level.HEADERS;
 import static okhttp3.logging.HttpLoggingInterceptor.Level.NONE;
 
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
-
 @Module
 public class HttpModule {
 

@@ -14,9 +14,6 @@ import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.support.AndroidSupportInjectionModule;
 
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
 @Singleton
 @Component(modules = {
         AndroidSupportInjectionModule.class,

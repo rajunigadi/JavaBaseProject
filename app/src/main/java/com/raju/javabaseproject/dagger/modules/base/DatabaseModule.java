@@ -4,17 +4,13 @@ import android.app.Application;
 import android.arch.persistence.room.Room;
 
 import com.raju.javabaseproject.R;
-import com.raju.javabaseproject.data.database.AppDatabase;
-import com.raju.javabaseproject.data.database.dao.UserDao;
+import com.raju.javabaseproject.data.source.local.AppDatabase;
+import com.raju.javabaseproject.data.source.local.dao.UserDao;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
 
 @Module
 public class DatabaseModule {

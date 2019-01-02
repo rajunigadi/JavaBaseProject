@@ -25,9 +25,6 @@ import java.util.Date;
 
 import timber.log.Timber;
 
-/**
- * Created by Rajashekhar Vanahalli on 06/07/18.
- */
 public class ImageUtil {
 
     public static File createImageFile(Context context) throws IOException {

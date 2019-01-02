@@ -16,10 +16,6 @@ import dagger.android.HasActivityInjector;
 import dagger.android.HasServiceInjector;
 import timber.log.Timber;
 
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
-
 public class MyApp extends MultiDexApplication implements HasActivityInjector, HasServiceInjector {
 
     @Override

@@ -13,9 +13,6 @@ import javax.inject.Inject;
 import dagger.android.AndroidInjection;
 import timber.log.Timber;
 
-/**
- * Created by Rajashekhar Vanahalli on 07/09/18.
- */
 public class MyFCMMessagingService extends FirebaseMessagingService {
 
     @Inject

@@ -15,9 +15,7 @@ import java.util.Locale;
 
 import timber.log.Timber;
 
-/**
- * Created by rajashekhar.v on 24/03/18.
- */
+
 
 public class FileLoggingTree extends Timber.DebugTree {
 

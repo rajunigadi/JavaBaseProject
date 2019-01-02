@@ -1,6 +1,6 @@
-package com.raju.javabaseproject.mvp.model;
+package com.raju.javabaseproject.data.model;
 
-public class ServerResponse {
+public class ErrorResponse {
 
     private int status;
     private String message;

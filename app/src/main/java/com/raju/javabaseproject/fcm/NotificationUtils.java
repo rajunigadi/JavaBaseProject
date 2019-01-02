@@ -18,9 +18,6 @@ import com.raju.javabaseproject.ui.activities.MainActivity;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-/**
- * Created by Rajashekhar Vanahalli on 07/09/18.
- */
 @Singleton
 public class NotificationUtils {
 

@@ -15,18 +15,12 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.raju.javabaseproject.mvp.presenter.base.IPresenter;
-
-import javax.inject.Inject;
-
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
 
-public abstract class BaseFragment<P extends IPresenter> extends Fragment {
+
+public abstract class BaseFragment extends Fragment {
 
     protected BaseFragment(int layoutId, String title) {
         this.layoutId = layoutId;
@@ -48,9 +42,6 @@ public abstract class BaseFragment<P extends IPresenter> extends Fragment {
         if(unbinder !=null){
             unbinder.unbind();
             unbinder = null;
-        }
-        if(presenter != null) {
-            presenter.destroy();
         }
     }
 
@@ -99,9 +90,6 @@ public abstract class BaseFragment<P extends IPresenter> extends Fragment {
                 Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
         }
     }
-
-    @Inject
-    protected P presenter;
 
     private Unbinder unbinder;
     private int layoutId;

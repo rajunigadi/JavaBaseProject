@@ -1,4 +1,4 @@
-package com.raju.javabaseproject.data.http;
+package com.raju.javabaseproject.data.source.remote.http;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -7,9 +7,7 @@ import okhttp3.CacheControl;
 import okhttp3.Interceptor;
 import okhttp3.Response;
 
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
+
 
 public class CacheInterceptor  implements Interceptor {
 

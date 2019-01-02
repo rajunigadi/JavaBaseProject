@@ -1,9 +1,6 @@
-package com.raju.javabaseproject.mvp.model;
+package com.raju.javabaseproject.data.model;
 
-/**
- * Created by Rajashekhar Vanahalli on 06/07/18.
- */
-public class ErrorResponse {
+public class ServerResponse {
 
     private int status;
     private String message;

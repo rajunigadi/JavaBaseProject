@@ -7,14 +7,10 @@ import android.widget.Filterable;
 
 import com.raju.javabaseproject.ui.adapters.base.ClickableItemTarget;
 import com.raju.javabaseproject.ui.adapters.base.ItemClickListener;
-import com.raju.javabaseproject.mvp.model.ListItem;
+import com.raju.javabaseproject.data.model.ListItem;
 
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by Rajashekhar Vanahalli on 12/21/17.
- */
 
 public abstract class DelegatingListAdapter<T extends ListItem>
         extends DelegatingAdapter<List<T>>

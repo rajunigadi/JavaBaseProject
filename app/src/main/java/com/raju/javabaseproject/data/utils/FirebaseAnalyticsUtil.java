@@ -8,9 +8,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-/**
- * Created by Rajashekhar Vanahalli on 05/04/18.
- */
+
 
 @Singleton
 public class FirebaseAnalyticsUtil {
