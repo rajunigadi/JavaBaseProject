@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">JavaBaseProject</string>
+
     <string name="db_name">db_java_base_project</string>
+    <integer name="db_version" translatable="false">1</integer>
     <string name="pref_name">prefs_java_base_project</string>
+
+    <string name="endpoint">https://api.helpay.com.br/v1/</string>
+
+    <string name="fileprovider">com.raju.javabaseproject.fileprovider</string>
+    <string name="fileprovider_path">Android/data/com.raju.javabaseproject/files/Pictures</string>
+
+    <string name="channel_name" translatable="false">myapp</string>
+    <string name="channel_description" translatable="false">myapp</string>
+    <string name="default_notification_channel_id" translatable="false">myapp_fcm_channel_id</string>
+
 </resources>

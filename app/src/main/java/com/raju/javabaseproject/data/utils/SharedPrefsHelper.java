@@ -5,6 +5,10 @@ import android.content.SharedPreferences;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+/**
+ * Created by Rajashekhar Vanahalli on 05/04/18.
+ */
+
 @Singleton
 public class SharedPrefsHelper {
 
@@ -55,3 +59,4 @@ public class SharedPrefsHelper {
         mSharedPreferences.edit().clear().apply();
     }
 }
+

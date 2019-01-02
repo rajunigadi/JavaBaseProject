@@ -1,44 +1,24 @@
 package com.raju.javabaseproject.ui.fragments;
 
-import android.arch.lifecycle.Observer;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.raju.javabaseproject.R;
-import com.raju.javabaseproject.data.model.User;
-import com.raju.javabaseproject.ui.adapters.UsersAdapter;
-import com.raju.javabaseproject.ui.adapters.base.ClickableItemTarget;
-import com.raju.javabaseproject.ui.adapters.base.ItemClickListener;
-import com.raju.javabaseproject.ui.adapters.delegate.base.DelegatingAdapter;
-import com.raju.javabaseproject.ui.custom.SimpleDividerItemDecoration;
-import com.raju.javabaseproject.ui.fragments.base.BaseDaggerFragment;
-import com.raju.javabaseproject.viewmodels.UserViewModel;
+import com.raju.javabaseproject.mvp.model.ServerResponse;
+import com.raju.javabaseproject.mvp.presenter.UserPresenter;
+import com.raju.javabaseproject.mvp.view.IUsersView;
+import com.raju.javabaseproject.ui.fragments.base.BaseFragment;
+import dagger.android.support.AndroidSupportInjection;
 
-import java.util.List;
-
-import javax.inject.Inject;
-
-import butterknife.BindView;
-import timber.log.Timber;
-
-public class UserFragment extends BaseDaggerFragment<UserViewModel> implements ItemClickListener<User> {
-
-    @BindView(R.id.progress_bar)
-    ProgressBar progressBar;
-
-    @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
-
-    @Inject
-    UsersAdapter adapter;
+/**
+ * Created by Rajashekhar Vanahalli on 09/04/18.
+ */
+public class UserFragment extends BaseFragment<UserPresenter> implements IUsersView {
 
     public UserFragment() {
-        super(R.layout.fragment_users, "Users");
+        super(R.layout.fragment_user, "User");
     }
 
     public static UserFragment newInstance() {
@@ -52,74 +32,53 @@ public class UserFragment extends BaseDaggerFragment<UserViewModel> implements I
     }
 
     @Override
+    public void onAttach(Context context) {
+        AndroidSupportInjection.inject(this);
+        super.onAttach(context);
+    }
+
+    @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if(recyclerView != null) {
-            setupRecyclerView();
-            setupAdapter(recyclerView);
-        }
-        viewModel.userResult.observe(this, new Observer<List<User>>() {
-            @Override
-            public void onChanged(@Nullable List<User> users) {
-                hideLoading();
-                adapter.refactorItems(users);
-            }
-        });
-
-        viewModel.error.observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String error) {
-                hideLoading();
-                Toast.makeText(getActivity(), "Something went wrong, try later.", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        showLoading();
-        viewModel.getUsers();
-    }
-
-    protected void setupRecyclerView() {
-        if(recyclerView != null) {
-            LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-            recyclerView.setLayoutManager(layoutManager);
-            recyclerView.addItemDecoration(new SimpleDividerItemDecoration(getActivity()));
-        }
-    }
-
-    protected void setupAdapter(RecyclerView recyclerView) {
-        if (recyclerView.getAdapter() != adapter) {
-            recyclerView.setAdapter(adapter);
-
-            if (adapter instanceof ClickableItemTarget) {
-                @SuppressWarnings("unchecked")
-                ClickableItemTarget<User> target = (ClickableItemTarget<User>) adapter;
-                target.setItemClickListener(this);
-            }
-
-            if (adapter instanceof DelegatingAdapter) {
-                adapter.setup();
-            }
-        }
-    }
-
-    private void showLoading() {
-        if(progressBar != null) {
-            progressBar.setVisibility(View.VISIBLE);
-        }
-    }
-
-    private void hideLoading() {
-        if(progressBar != null) {
-            progressBar.setVisibility(View.GONE);
-        }
+        /*if (presenter != null) {
+            presenter.init(this);
+            presenter.getHomeData();
+        }*/
     }
 
     @Override
-    public void onClick(User item, int position, View view) {
-        Timber.d("Item clicked");
+    public void onStop() {
+        super.onStop();
+        presenter.destroy();
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    public void showError(String message) {
+
+    }
+
+    @Override
+    public void bindData(ServerResponse serverResponse) {
+
+    }
+
+    @Override
+    public Context getContext() {
+        return getActivity();
     }
 }

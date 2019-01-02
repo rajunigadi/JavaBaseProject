@@ -6,6 +6,10 @@ import android.support.v4.util.SparseArrayCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
+/**
+ * Created by Rajashekhar Vanahalli on 12/21/17.
+ */
+
 public class AdapterDelegatesManager<T> {
 
     static final int FALLBACK_DELEGATE_VIEW_TYPE = Integer.MAX_VALUE - 1;

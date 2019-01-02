@@ -2,17 +2,53 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b9dc60194a36cb99833752fffca0a244",
+    "identityHash": "752d17866a86a54168d3bcd2c15f8639",
     "entities": [
       {
         "tableName": "User",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`login` TEXT NOT NULL, PRIMARY KEY(`login`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`login` TEXT NOT NULL, `id` INTEGER NOT NULL, `avatarUrl` TEXT, `gravatarId` TEXT, `url` TEXT, `reposUrl` TEXT, `type` TEXT, PRIMARY KEY(`login`))",
         "fields": [
           {
             "fieldPath": "login",
             "columnName": "login",
             "affinity": "TEXT",
             "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "avatarUrl",
+            "columnName": "avatarUrl",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "gravatarId",
+            "columnName": "gravatarId",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "reposUrl",
+            "columnName": "reposUrl",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -27,7 +63,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"b9dc60194a36cb99833752fffca0a244\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"752d17866a86a54168d3bcd2c15f8639\")"
     ]
   }
 }

@@ -4,6 +4,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * Created by Rajashekhar Vanahalli on 12/21/17.
+ */
+
 public abstract class DelegatingAdapter<T> extends RecyclerView.Adapter
         implements DelegateClickListener {
 

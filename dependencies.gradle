@@ -3,7 +3,7 @@ ext {
             androidSupport      : '27.1.1',
             googlePlay          : '15.0.1',
             firebase            : '16.0.0',
-            firebaseMessaging   : '17.0.0',
+            firebaseMessaging   : '17.3.0',
             constraintLayout    : '1.1.0',
             lifecycle           : '1.1.1',
             room                : '1.0.0',

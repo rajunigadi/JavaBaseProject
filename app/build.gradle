@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -25,6 +28,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
@@ -38,6 +44,9 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    // kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
     // android
     implementation libs.supportv13
@@ -57,10 +66,10 @@ dependencies {
 
     // Dagger core
     implementation libs.dagger
-    annotationProcessor libs.daggerCompiler
+    kapt libs.daggerCompiler
     // Dagger Android
     implementation libs.daggerSupport
-    annotationProcessor libs.daggerAndProcessor
+    kapt libs.daggerAndProcessor
     // if you are not using support library, include this instead
     implementation libs.daggerAndroid
 
@@ -81,19 +90,19 @@ dependencies {
 
     // glide
     implementation libs.glide
-    annotationProcessor libs.glideProcessor
+    kapt libs.glideProcessor
     implementation libs.glideTransformers
     implementation libs.butterknife
-    annotationProcessor libs.butterknifeProcessor
+    kapt libs.butterknifeProcessor
 
     // room database
     implementation libs.room
-    annotationProcessor libs.roomProcessor
+    kapt libs.roomProcessor
     implementation libs.roomRx
 
 
     implementation libs.lifecycle
-    annotationProcessor libs.lifecycleProcessor
+    kapt libs.lifecycleProcessor
     implementation libs.lifecycleExtensions
 
     // gson

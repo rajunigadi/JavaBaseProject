@@ -1,28 +1,42 @@
 package com.raju.javabaseproject;
 
 import android.app.Activity;
-import android.app.Application;
+import android.app.Service;
+import android.support.multidex.MultiDexApplication;
 
-import com.raju.javabaseproject.di.components.DaggerApplicationComponent;
-import com.raju.javabaseproject.utilities.logger.DebugLogTree;
-import com.raju.javabaseproject.utilities.logger.ReleaseLogTree;
+import com.raju.javabaseproject.dagger.components.DaggerApplicationComponent;
+import com.raju.javabaseproject.utlities.logger.DebugLogTree;
+import com.raju.javabaseproject.utlities.logger.ReleaseLogTree;
 
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
+import dagger.android.HasServiceInjector;
 import timber.log.Timber;
 
-public class MyApp extends Application implements HasActivityInjector {
+/**
+ * Created by Rajashekhar Vanahalli on 05/04/18.
+ */
 
-    @Inject
-    DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
+public class MyApp extends MultiDexApplication implements HasActivityInjector, HasServiceInjector {
+
+    @Override
+    public AndroidInjector<Activity> activityInjector() {
+        return activityDispatchingAndroidInjector;
+    }
+
+    @Override
+    public AndroidInjector<Service> serviceInjector() {
+        return serviceDispatchingAndroidInjector;
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        if(BuildConfig.DEBUG) {
+
+        if (BuildConfig.DEBUG) {
             Timber.plant(new DebugLogTree());
         } else {
             Timber.plant(new ReleaseLogTree());
@@ -35,8 +49,9 @@ public class MyApp extends Application implements HasActivityInjector {
                 .inject(this);
     }
 
-    @Override
-    public AndroidInjector<Activity> activityInjector() {
-        return activityDispatchingAndroidInjector;
-    }
+    @Inject
+    DispatchingAndroidInjector<Activity> activityDispatchingAndroidInjector;
+
+    @Inject
+    DispatchingAndroidInjector<Service> serviceDispatchingAndroidInjector;
 }
