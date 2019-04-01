@@ -11,22 +11,48 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
             }
         }
+        multiDexEnabled true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    buildTypes {
+
+    signingConfigs {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            storeFile file(STORE_FILE)
+            storePassword STORE_PASSWORD
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
         }
+    }
+
+    buildTypes {
+        debug {
+            versionNameSuffix '-DEBUG'
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    outputFileName = APK_NAME
+                }
+            }
+            signingConfig signingConfigs.release
+        }
+    }
+    lintOptions {
+        //abortOnError true
+        //warningsAsErrors true
     }
     kapt {
         correctErrorTypes = true
@@ -35,38 +61,46 @@ android {
 
 dependencies {
     def libs = rootProject.ext.libs
-
     // libraries folder
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    // testing
-    testImplementation libs.junit
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-
     // kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation libs.kotlin
 
     // android
     implementation libs.supportv13
     implementation libs.supportv4
-    implementation libs.appcompatv7
-    implementation libs.constraintLayout
-    implementation(libs.design) {
-        exclude group: 'com.android.support', module: 'recyclerview-v7'
-    }
-    implementation libs.recyclerView
+
+    implementation libs.appcompat
+    implementation libs.constraintlayout
+
+    implementation libs.material
+    implementation libs.recyclerview
     implementation libs.cardview
     implementation libs.multidex
-    implementation libs.googlePlay
-    implementation libs.firebaseCore
-    implementation libs.firebaseMessaging
 
+    // lifecycle
+    implementation libs.lifecycleRuntime
+    kapt libs.lifecycleCompiler
+    implementation libs.lifecycleExtensions
+
+    // room database
+    implementation libs.roomRuntime
+    kapt libs.roomCompiler
+    implementation libs.roomRxJava2
+
+    // paging
+    implementation libs.paging
+
+    // firebase
+    implementation libs.firebaseCore
+    implementation libs.firebaseCrash
+    implementation libs.firebaseMessaging
 
     // Dagger core
     implementation libs.dagger
     kapt libs.daggerCompiler
+
     // Dagger Android
     implementation libs.daggerSupport
     kapt libs.daggerAndProcessor
@@ -85,6 +119,8 @@ dependencies {
         exclude group: 'io.reactivex', module: 'rxjava'
         exclude group: 'com.squareup.retrofit2', module: 'retrofit'
     }
+    implementation libs.scalarConverter
+
     implementation libs.gsonConverter
     implementation libs.okHttpLog
 
@@ -92,23 +128,41 @@ dependencies {
     implementation libs.glide
     kapt libs.glideProcessor
     implementation libs.glideTransformers
+
+    // butterknife
     implementation libs.butterknife
     kapt libs.butterknifeProcessor
-
-    // room database
-    implementation libs.room
-    kapt libs.roomProcessor
-    implementation libs.roomRx
-
-
-    implementation libs.lifecycle
-    kapt libs.lifecycleProcessor
-    implementation libs.lifecycleExtensions
 
     // gson
     implementation libs.gson
 
     // timber logs
     implementation libs.timber
-}
 
+    // stetho
+    implementation libs.stetho
+    implementation libs.stethoOkhttp3
+    implementation libs.roundimageview
+
+    // facebook
+    implementation libs.facebook
+
+    // date month picker
+    implementation libs.dateMonthPicker
+
+    // testing
+    // Required -- JUnit 4 framework
+    testImplementation libs.junit
+    // Optional -- Robolectric environment
+    testImplementation libs.robolectric
+    // Optional -- Mockito framework
+    testImplementation libs.mockito
+    // Truth - Fluent assertions for Java
+    testImplementation libs.truth
+
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test:rules:1.1.0'
+    androidTestImplementation "androidx.test.ext:junit:1.1.0"
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.0'
+}
