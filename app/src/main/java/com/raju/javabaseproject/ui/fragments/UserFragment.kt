@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
+import android.widget.ProgressBar
 
 import com.raju.javabaseproject.R
 import com.raju.javabaseproject.data.model.User
@@ -27,6 +28,9 @@ class UserFragment : BaseDaggerFragment<UserViewModel>(R.layout.fragment_user, "
     @BindView(R.id.recycler_view)
     lateinit var recyclerView: RecyclerView
 
+    @BindView(R.id.progress_bar)
+    lateinit var progressBar: ProgressBar
+
     @Inject
     lateinit var adapter: UserAdapter
 
@@ -45,46 +49,56 @@ class UserFragment : BaseDaggerFragment<UserViewModel>(R.layout.fragment_user, "
         setupRecyclerView()
         setupAdapter(recyclerView!!)
 
-        viewModel!!.result.observe(this, Observer {
+        viewModel.result.observe(this, Observer {
             hideLoading()
-            adapter!!.refactorItems(it)
-            recyclerView!!.visibility = View.VISIBLE
+            adapter.refactorItems(it)
+            recyclerView.visibility = View.VISIBLE
         })
 
-        viewModel!!.error.observe(this, Observer { s ->
+        viewModel.error.observe(this, Observer { s ->
             hideLoading()
             showSnackBar(s)
+        })
+
+        viewModel.progress.observe(this, Observer {
+            if(it) {
+                showLoading()
+            } else {
+                hideLoading()
+            }
         })
     }
 
     override fun onStart() {
         super.onStart()
         if (viewModel != null) {
-            viewModel!!.init()
-            viewModel!!.getUsers()
+            viewModel.init()
+            viewModel.getUsers()
         }
     }
 
     override fun onStop() {
         super.onStop()
-        viewModel!!.destroy()
+        viewModel.destroy()
     }
 
     override fun onItemClick(view: View, position: Int, item: User) {
        Timber.d("onItemClick")
     }
 
-    fun showLoading() {
+    private fun showLoading() {
         Timber.d("showLoading")
+        progressBar.visibility = View.VISIBLE
     }
 
-    fun hideLoading() {
+    private fun hideLoading() {
         Timber.d("hideLoading")
+        progressBar.visibility = View.GONE
     }
 
     private fun setupRecyclerView() {
         val layoutManager = LinearLayoutManager(activity)
-        recyclerView!!.layoutManager = layoutManager
+        recyclerView.layoutManager = layoutManager
     }
 
     private fun setupAdapter(recyclerView: RecyclerView) {
@@ -93,11 +107,11 @@ class UserFragment : BaseDaggerFragment<UserViewModel>(R.layout.fragment_user, "
 
             if (adapter is ClickableItemTarget<*>) {
                 val target = adapter as ClickableItemTarget<User>?
-                target!!.setOnItemClickListener(this)
+                target?.setOnItemClickListener(this)
             }
 
             if (adapter is DelegatingAdapter<*>) {
-                adapter!!.setup()
+                adapter.setup()
             }
         }
     }

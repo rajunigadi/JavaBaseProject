@@ -8,7 +8,7 @@ import javax.inject.Inject
 import io.reactivex.Observable
 
 class UserRepository @Inject
-internal constructor(private val api: UserApi) {
+    internal constructor(private val api: UserApi) {
 
     val users: Observable<MutableList<User>>
         get() = api.users

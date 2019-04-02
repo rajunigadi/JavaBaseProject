@@ -13,12 +13,13 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 class UserViewModel @Inject
-internal constructor(private val repository: UserRepository, private val gson: Gson) : BaseViewModel() {
+    internal constructor(private val repository: UserRepository, private val gson: Gson) : BaseViewModel() {
 
     var result: MutableLiveData<MutableList<ListItem>> = MutableLiveData()
     var error: MutableLiveData<String> = MutableLiveData()
 
     fun getUsers() {
+        progress.postValue(true)
         compositeDisposable!!.add(repository.users
                 .map {
                     val listItems = mutableListOf<ListItem>()
@@ -28,8 +29,14 @@ internal constructor(private val repository: UserRepository, private val gson: G
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        { result.postValue(it) },
-                        { error.postValue(it.message) }
+                        {
+                            progress.postValue(false)
+                            result.postValue(it)
+                        },
+                        {
+                            progress.postValue(false)
+                            error.postValue(it.message)
+                        }
                 ))
     }
 }
