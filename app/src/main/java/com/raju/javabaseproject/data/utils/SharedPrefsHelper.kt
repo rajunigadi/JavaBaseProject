@@ -1,29 +1,40 @@
 package com.raju.javabaseproject.data.utils
 
 import android.content.SharedPreferences
+import androidx.core.content.edit
 
 import javax.inject.Inject
 import javax.inject.Singleton
 
-
+/*
+    Using ktx concept here
+ */
 @Singleton
 class SharedPrefsHelper @Inject
 constructor(private val mSharedPreferences: SharedPreferences) {
 
     fun put(key: String, value: String) {
-        mSharedPreferences.edit().putString(key, value).apply()
+        mSharedPreferences.edit {
+            putString(key, value)
+        }
     }
 
     fun put(key: String, value: Int) {
-        mSharedPreferences.edit().putInt(key, value).apply()
+        mSharedPreferences.edit {
+            putInt(key, value)
+        }
     }
 
     fun put(key: String, value: Float) {
-        mSharedPreferences.edit().putFloat(key, value).apply()
+        mSharedPreferences.edit {
+            putFloat(key, value)
+        }
     }
 
     fun put(key: String, value: Boolean) {
-        mSharedPreferences.edit().putBoolean(key, value).apply()
+        mSharedPreferences.edit {
+            putBoolean(key, value)
+        }
     }
 
     operator fun get(key: String, defaultValue: String): String? {

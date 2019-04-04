@@ -165,4 +165,14 @@ dependencies {
     androidTestImplementation 'androidx.test:rules:1.1.0'
     androidTestImplementation "androidx.test.ext:junit:1.1.0"
     androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.0'
+
+
+
+
+    implementation libs.ktxCore
+    implementation libs.ktxFragments
+    implementation libs.ktxCollection
+    implementation libs.ktxViewModel
+    implementation libs.ktxRx
+    implementation libs.ktxWork
 }

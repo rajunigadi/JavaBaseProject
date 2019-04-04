@@ -1,6 +1,7 @@
 package com.raju.javabaseproject.ui.activities
 
 import android.os.Bundle
+import androidx.fragment.app.transaction
 
 import com.raju.javabaseproject.R
 import com.raju.javabaseproject.ui.activities.base.BaseActivity
@@ -18,8 +19,11 @@ class MainActivity : BaseActivity() {
         val bundle = Bundle()
         val fragment = UserFragment.newInstance()
         fragment.arguments = bundle
-        val ft = supportFragmentManager.beginTransaction()
-        ft.replace(R.id.fragment_container, fragment)
-        ft.commit()
+
+
+        // ktx concept
+        supportFragmentManager.transaction(allowStateLoss = true) {
+            replace(R.id.fragment_container, fragment)
+        }
     }
 }

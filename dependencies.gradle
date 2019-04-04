@@ -33,7 +33,14 @@ ext {
             junit                   : '4.12',
             robolectric             : '1.0.0',
             mockito                 : '2.25.0',
-            truth                   : '0.42'
+            truth                   : '0.42',
+
+            ktxCore                 : '1.0.0',
+            ktxFragments            : '1.0.0',
+            ktxCollection           : '1.0.0',
+            ktxViewModel            : '2.0.0',
+            ktxRx                   : '2.0.0',
+            ktxWork                 : '1.0.0-alpha10'
     ]
 
 
@@ -84,6 +91,18 @@ ext {
             junit                   : "junit:junit:${versions.junit}",
             robolectric             : "androidx.test:core:${versions.robolectric}",
             mockito                 : "org.mockito:mockito-core:${versions.mockito}",
-            truth                   : "com.google.truth:truth:${versions.truth}"
+            truth                   : "com.google.truth:truth:${versions.truth}",
+
+
+
+
+
+
+            ktxCore                 : "androidx.core:core-ktx:${versions.ktxCore}",
+            ktxFragments            : "androidx.fragment:fragment-ktx:${versions.ktxFragments}",
+            ktxCollection           : "androidx.collection:collection-ktx:${versions.ktxCollection}",
+            ktxViewModel            : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.ktxViewModel}",
+            ktxRx                   : "androidx.lifecycle:lifecycle-reactivestreams-ktx:${versions.ktxRx}",
+            ktxWork                 : "android.arch.work:work-runtime-ktx:${versions.ktxWork}",
     ]
 }
